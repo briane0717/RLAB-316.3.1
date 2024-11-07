@@ -66,7 +66,6 @@ topMenuEl.addEventListener('click', (evt) => {
     topMenuLinks.forEach(link => link.classList.remove('active'))
     evt.target.classList.add('active');
     // Remove 'active' class from all links
-    ;
 
     // Find the matching link object in menuLinks
     let clickedLink = menuLinks.find(link => link.text === evt.target.textContent);
@@ -100,4 +99,18 @@ topMenuEl.addEventListener('click', (evt) => {
 
     }
   }
-);
+)
+// Event Listener to handle subMenu clicks
+subMenuEl.addEventListener('click', (evt) => {
+  evt.preventDefault();
+  if (evt.target.tagName !== "A") return;
+  console.log(evt.target.textContent);
+  subMenuEl.style.top = 0;
+  topMenuLinks.forEach(link => link.classList.remove('active'))
+  let h1 = document.createElement('h1');
+  h1.textContent = evt.target.textContent;
+  mainEl.innerHTML = '';
+  mainEl.appendChild(h1)
+
+    
+})
