@@ -108,9 +108,12 @@ subMenuEl.addEventListener('click', (evt) => {
   subMenuEl.style.top = 0;
   topMenuLinks.forEach(link => link.classList.remove('active'))
   let h1 = document.createElement('h1');
-  h1.textContent = evt.target.textContent;
+  if (evt.target.textContent.toLowerCase() === 'about'){
+    h1.textContent = 'About'
+  }else {
+    h1.textContent = evt.target.textContent
+  }
   mainEl.innerHTML = '';
-  mainEl.appendChild(h1)
-
-    
+  mainEl.appendChild(h1);
 })
+
