@@ -58,6 +58,8 @@ topMenuEl.addEventListener('click', (evt) => {
 
   console.log(evt.target.textContent);
 
+  
+
   // If the clicked element does not yet have the 'active' class
   // If it does remove it
   if (!evt.target.classList.contains('active')) {
@@ -71,7 +73,9 @@ topMenuEl.addEventListener('click', (evt) => {
 
     // Check if clickedLink has subLinks
     if (clickedLink && clickedLink.subLinks) {
+      buildSubmenu(clickedLink);
       subMenuEl.style.top = '100%';
+      
     } else {
       subMenuEl.style.top = '0%';
     }
@@ -85,7 +89,7 @@ topMenuEl.addEventListener('click', (evt) => {
   // Add text and href to subMenuLinks
   function buildSubmenu(clickedLink){
     subMenuEl.innerHTML = ''
-    if (clickedLink.subLink){
+    if (clickedLink.subLinks){
     clickedLink.subLinks.forEach(subLink =>{
     let subMenuLinks = document.createElement('a')
     subMenuLinks.href = subLink.href
