@@ -79,4 +79,21 @@ topMenuEl.addEventListener('click', (evt) => {
     evt.target.classList.remove('active')
     subMenuEl.style.top = "0%"
   }
-});
+  // created buildSubMenu helper function
+  // Clears current contents of subMenuEl
+  //Checks if clicked link has subLinks
+  // Add text and href to subMenuLinks
+  function buildSubmenu(clickedLink){
+    subMenuEl.innerHTML = ''
+    if (clickedLink.subLink){
+    clickedLink.subLinks.forEach(subLink =>{
+    let subMenuLinks = document.createElement('a')
+    subMenuLinks.href = subLink.href
+    subMenuLinks.textContent = subLink.text
+    subMenuEl.appendChild(subMenuLinks)
+  })}
+  
+
+    }
+  }
+);
